@@ -1,0 +1,16 @@
+{
+"manifest_version":2,
+    "name": "ClipSrc",
+    "version":"1.0.0",
+    "content_scripts": [
+        {
+        "matches":["<all_urls>"],
+        "js":["content.js"]
+        }
+    ],
+    "permissions": ["tabs"],
+    "browser_action":{
+        "default_popup":"popup.html",
+        "default_title": "clipper"
+    }
+  }
