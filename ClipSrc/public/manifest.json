@@ -1,7 +1,10 @@
 {
-"manifest_version":3,
+"manifest_version":2,
     "name": "ClipSrc",
     "version":"1.0.0",
+    "background":{
+        "service_worker":"background.js"
+    },
     "content_scripts": [
         {
         "matches":["<all_urls>"],
@@ -9,7 +12,7 @@
         }
     ],
     "permissions": ["tabs"],
-    "action":{
+    "browser_action":{
         "default_popup":"popup.html",
         "default_title": "clipper"
     }
