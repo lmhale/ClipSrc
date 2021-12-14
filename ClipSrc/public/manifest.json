@@ -9,7 +9,8 @@
         {
         "matches":["<all_urls>"],
         "js":[ 
-         "content.js" ]
+         "content.js" ],
+         "css": ["injectStyle.css"]
         }
     ],
     "permissions": ["tabs", "activeTab","storage", "scripting", "contextMenus"],
