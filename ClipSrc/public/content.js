@@ -1,4 +1,3 @@
-//  let saveButton= document.getElementById("save");
 
 
 window.addEventListener("mouseup", selectWords)
