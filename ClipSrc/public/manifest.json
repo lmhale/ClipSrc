@@ -12,7 +12,7 @@
             "content.js"]
         }
     ],
-    "permissions": ["tabs", "activeTab","storage", "scripting"],
+    "permissions": ["tabs", "activeTab","storage", "scripting", "contextMenus"],
     "action":{
         "default_popup":"popup.html",
         "default_title": "clipper"
