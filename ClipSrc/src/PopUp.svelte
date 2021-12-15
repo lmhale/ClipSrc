@@ -10,7 +10,6 @@ let tags = [
 
     let selected;
     let answer;
-
     let textSnippet;
     let url;
        chrome.storage.local.get(['txtS'], function(result) {
@@ -23,26 +22,25 @@ let tags = [
         console.log("Url is" + result.url)
         url = result.url
     });
-  
-    async function postData(){
-        const res = await fetch('http://localhost:8080/api/lists', {
+    async function postData () {
+        console.log(selected)
+        let tag = 'w'
+		const res = await fetch('http://localhost:8080/clips', {
 			method: 'POST',
-			body: JSON({
+			body: JSON.stringify({
 				textSnippet,
 				url,
-                selected
-			})
+                tag
 		})
+    })
 		
 		const json = await res.json()
-		console.log(JSON.stringify(json))
-    }
+		console.log('j',JSON.stringify(json)) 
+	} 
 
     function handleSubmit() {
         // let info = textSnippet + '\n' + selected.text
         // alert(info)
-
-
 
     }
 </script>
