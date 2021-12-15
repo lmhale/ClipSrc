@@ -1,5 +1,6 @@
 
 <script>
+   
 //will dynamically grab tags from back end
 let tags = [
 		{ id: 1, text: `quickCapture` },
@@ -23,15 +24,32 @@ let tags = [
         url = result.url
     });
   
+    async function postData(){
+        const res = await fetch('http://localhost:8080/api/lists', {
+			method: 'POST',
+			body: JSON({
+				textSnippet,
+				url,
+                selected
+			})
+		})
+		
+		const json = await res.json()
+		console.log(JSON.stringify(json))
+    }
+
     function handleSubmit() {
-        let info = textSnippet + '\n' + selected.text
-        alert(info)
+        // let info = textSnippet + '\n' + selected.text
+        // alert(info)
+
+
+
     }
 </script>
 
 <main>
     <h1>ClipSRC Extension</h1>
-    <form on:submit|preventDefault={handleSubmit}>
+    <form on:submit|preventDefault={postData}>
         <label for="link">Link:</label>
         <input name="link" value={url}> 
         <textarea bind:value={textSnippet}/>
