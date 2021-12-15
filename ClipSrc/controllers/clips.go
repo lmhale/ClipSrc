@@ -7,12 +7,12 @@ import (
 	"github.com/lmhale/ClipSrc/models"
 )
 
-// GET /books
-// Get all books
+// Get all clips
 func FindClips(c *gin.Context) {
   var clips []models.Clip
   models.DB.Find(&clips)
-
+  c.Header("Access-Control-Allow-Origin", "*")
+  c.Header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS")
   c.JSON(http.StatusOK, gin.H{"data": clips})
 }
 
@@ -24,7 +24,7 @@ type CreateClipInput struct {
   }
 
 func CreateClip(c *gin.Context) {
-	// Validate input
+	// validate input
 	var input CreateClipInput
 	if err := c.ShouldBindJSON(&input); err != nil {
 	  c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
