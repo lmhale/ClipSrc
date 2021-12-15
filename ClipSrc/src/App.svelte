@@ -1,10 +1,28 @@
 <script>
+let data ={
+	website_link: undefined,
+	test_snippet: undefined,
+	tag: undefined
+};
+let theData;
 
+import {onMount} from 'svelte'
+
+onMount(async () => {
+
+		const res = await fetch('http://localhost:8080/clips')
+		theData = await res.json()
+	console.log('req', theData)
+
+})
+
+
+//show on screen
 </script>
 
 <main>
 	<h1>ClipSRC</h1>
-
+	<!-- {data.url} -->
 
 </main>
 
