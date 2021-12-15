@@ -20,7 +20,7 @@ func FindClips(c *gin.Context) {
 type CreateClipInput struct {
 	TextSnippet  string `json:"textSnippet" binding:"required"`
 	Url string `json:"url" binding:"required"`
-	Tag string `json:"tag"binding:"required"`
+	Tag string `json:"tag" binding:"required"`
   }
 
 func CreateClip(c *gin.Context) {

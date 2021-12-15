@@ -9,7 +9,6 @@ import (
 
 
 func main() {
-    // clips = append(clips, "objects")
     r := gin.Default()
 	r.Use(static.Serve("/", static.LocalFile("./public", false)))
 	models.ConnectDatabase()
