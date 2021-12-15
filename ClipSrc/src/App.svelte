@@ -4,25 +4,28 @@ let data ={
 	test_snippet: undefined,
 	tag: undefined
 };
-let theData;
+let clips = []
 
 import {onMount} from 'svelte'
 
 onMount(async () => {
 
 		const res = await fetch('http://localhost:8080/clips')
-		theData = await res.json()
-	console.log('req', theData)
+		clips = await res.json()
+		clips = clips.data
+	console.log('req',clips)
 
 })
 
-
-//show on screen
 </script>
 
 <main>
 	<h1>ClipSRC</h1>
-	<!-- {data.url} -->
+	{#each clips as clip(clip.id)}
+	<p>{clip.url}</p>
+	<p>{clip.textSnippet}</p>
+	<p>{clip.tag}</p>
+	{/each}	
 
 </main>
 
