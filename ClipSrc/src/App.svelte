@@ -22,9 +22,11 @@ onMount(async () => {
 <main>
 	<h1>ClipSRC</h1>
 	{#each clips as clip(clip.id)}
-	<p>{clip.url}</p>
-	<p>{clip.textSnippet}</p>
-	<p>{clip.tag}</p>
+	<ul>
+	<li><b>Site Url:</b> {clip.url}</li>
+	<li><b>Text Snippet:</b> {clip.textSnippet}</li>
+	<li><b>#{clip.tag}</b></li>
+	</ul>
 	{/each}	
 
 </main>
@@ -42,6 +44,9 @@ onMount(async () => {
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
+	}
+	ul {
+		list-style-type: none
 	}
 
 	@media (min-width: 640px) {
