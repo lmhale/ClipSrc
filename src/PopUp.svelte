@@ -16,24 +16,29 @@
     });
     async function postData () {
         console.log("tag", tag)
-		const res = await fetch('http://localhost:8080/clips', {
-			method: 'POST',
-			body: JSON.stringify({
-				textSnippet,
-				url,
+        const res = await fetch('http://localhost:8080/clips', {
+            method: 'POST',
+            body: JSON.stringify({
+                textSnippet,
+                url,
                 tag
-		})
+        })
+       
     })
-		
-		const json = await res.json()
-		console.log('j',JSON.stringify(json)) 
-	} 
-
-    function handleSubmit() {
-        // let info = textSnippet + '\n' + selected.text
-        // alert(info)
-
+    if(res.ok){
+          await clearText()
     }
+  
+    let JSONResponse = await res.json()
+        console.log('j',JSON.stringify( JSONResponse))
+        
+    }
+    async function clearText(){
+        textSnippet = ""
+        url=""
+        tag=""
+    } 
+
 </script>
 
 <main>
